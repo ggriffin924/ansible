@@ -1,0 +1,13 @@
+# variables that are visible from all roles
+
+# Ansible user info
+ansible_user: ggriffin  # must have sudo su - on remote boxes
+
+# ssh configuration file
+sshd_port: 22
+sshd_permitrootlogin: yes
+sshd_pubkeyauth: yes
+sshd_passwdauth: yes
+
+# network interface defaults
+
