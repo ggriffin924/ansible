@@ -1,6 +1,4 @@
-#!/usr/bin/ansible-playbook
-
-[test]
+-host: [test]
 
    - name: This is a test
      shell: echo "hello world"

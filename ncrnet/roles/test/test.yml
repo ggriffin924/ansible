@@ -1,0 +1,32 @@
+---
+# Apply Yum updates then wait for the reboot of the server
+#
+- hosts: foreman
+  remote_user: ggriffin
+  become_method: sudo
+  become: Yes
+  become_user: root
+
+  tasks:
+
+     - name: Check for reboot hint
+       shell: if [ $(rpm -q kernel | sort -Vr | head -n 1) != kernel-$(uname) ]; then echo 'reboot'; else echo 'no'; fi
+       register: reboot_hint
+       ignore_errors: true
+
+     - name: Rebooting {{ inventory_hostname }} now
+       shell: sleep 2 && shutdown -r now
+       async: 1
+       poll: 0
+       ignore_errors: true
+       when: reboot_hint.stdout == 'reboot'
+
+     - name: wait for {{ inventory_hostname }} to come back
+       local_action: wait_for host={{ inventory_hostname }} state=started port=22 delay=30 timeout=200 connect_timeout=15
+       when: reboot_hint.stdout == 'reboot'
+
+    # And finally, execute 'uptime' when the host is back.
+#     - pause: seconds=3
+     - shell: uptime
+
+...

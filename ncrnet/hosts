@@ -8,13 +8,30 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 
-[ansible_server]
-centos01.fairfax.local
+[groupa]
+ncrnginx1.linux.core.ncrnet.us
+ncrdocker1.linux.core.ncrnet.us
+ncrdocker2.linux.core.ncrnet.us
+ncriamsproxy1.linux.core.ncrnet.us
+ncriamsproxyncr1.linux.core.ncrnet.us
+ncriamsdir1.linux.core.ncrnet.us
+ipa2fa1.linux.core.ncrnet.us
+ncriamsprov1.linux.core.ncrnet.us
+ncripadc1.linux.core.ncrnet.us
 
-[main]
-centos02.fairfax.local
-centos03.fairfax.local
-centos04.fairfax.local
+[groupb]
+ncrdocker3.linux.core.ncrnet.us
+ncriamsproxyncr1.linux.core.ncrnet.us
+ncriamsproxy2.linux.core.ncrnet.us
+ncriamsprov2.linux.core.ncrnet.us
+ncriamsdir2.linux.core.ncrnet.us
+ncriamsproxyncr2.linux.core.ncrnet.us
+ipa2fa2.linux.core.ncrnet.us
 
-[testing]
-centos04.fairfax.local
+[group_server]
+ncrstorage1.linux.core.ncrnet.us
+
+[test]
+ipa2fa2.linux.core.ncrnet.us
+ncrdocker2.linux.core.ncrnet.us
+ncrdocker3.linux.core.ncrnet.us

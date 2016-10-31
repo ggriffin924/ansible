@@ -1,0 +1,24 @@
+---
+# Code snippet to check for unison installed on a box.  And if so then make sure its started.
+#
+- hosts: groupa, groupb
+  remote_user: ggriffin
+  become_method: sudo
+  become: Yes
+  become_user: root
+
+  tasks:
+
+     - name: Check for Unison Service
+       command: rpm -q unison
+       register: rpm_check
+       changed_when: False
+       failed_when: rpm_check.rc > 1
+       args:
+         warn: no
+
+     - name: Verified Unison is installed
+       service: name=unison state=started enabled=yes
+       when: rpm_check.rc == 0
+
+...

@@ -1,0 +1,15 @@
+---
+# Apply Yum updates then wait for the reboot of the server
+#
+- hosts: groupa, groupb
+  remote_user: ggriffin
+  become_method: sudo
+  become: Yes
+  become_user: root
+
+  tasks:
+
+     - name: Check for OS version
+       debug: msg="OS_ {{ ansible_distribution }} Ver_ {{ ansible_distribution_version }}"
+
+...

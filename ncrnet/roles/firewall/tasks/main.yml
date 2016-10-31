@@ -1,0 +1,43 @@
+---
+# make sure firewall ports are open.
+#
+- hosts: groupa, groupb
+  remote_user: ggriffin
+  become_method: sudo
+  become: Yes
+  become_user: root
+
+  tasks:
+
+#     - name: Check for OS version
+#       debug: msg="OS_ {{ ansible_distribution }} Ver_ {{ ansible_distribution_version }}"
+
+#     - name: Check major OS version number
+#       debug: msg="{{ ansible_distribution_major_version }}"
+
+#      - name: Check SElinux
+#        command: getenforce
+#        register: selinux_stat
+#        changed_when: false
+
+#      - debug: msg="SElinux status {{ selinux_stat.stdout }}"
+
+
+      - name: Checking if Firewall enabled
+        shell: "systemctl is-enabled firewalld.service"
+        register: service_firewalld_status
+        failed_when: false
+        changed_when: false
+        when: ansible_distribution_major_version  == "7"
+
+#     - name: Report status of firewalld
+#       debug: msg=("Status {{ service_firewalld_status.rc }}"
+#       when: ansible_distribution_major_version  == "7"
+
+      - name: Set firewall for RedHat 7 only and enabled
+        firewalld: port={{ item }} permanent=true state=enabled immediate=yes
+        with_items:    # ports to open
+          - 161/udp
+          - 162/udp
+        when: ansible_distribution_major_version  == "7" and service_firewalld_status.stdout == "enabled"
+...
