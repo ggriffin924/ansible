@@ -1,11 +1,9 @@
-#!/usr/bin/ansible-playbook --inventory=hosts --tags "delete users"
 ---
-  remote_user: "{{ ansible_user }}" 
-  become_method: sudo 
-  become: true
-  become_user: root
 
--hosts: [test]
-
+- hosts: test
   roles:
     - common
+
+- hosts: test
+  roles:
+    - yum_updates

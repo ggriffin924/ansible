@@ -49,6 +49,7 @@
     - testuser4
     - testuser5
     - testuser6
+    - puppet
 
 - name: Delete list of users
   tags:
@@ -61,7 +62,7 @@
     - testuser4
     - testuser5
     - testuser6
-    - puppet
+#     - puppet
 
 # post_tasks:
 
