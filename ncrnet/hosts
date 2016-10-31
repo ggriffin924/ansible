@@ -1,13 +1,5 @@
-# This is the default ansible 'hosts' file.
+# This is the NCRNet ansible 'hosts' file.
 #
-# It should live in /etc/ansible/hosts
-#
-#   - Comments begin with the '#' character
-#   - Blank lines are ignored
-#   - Groups of hosts are delimited by [header] elements
-#   - You can enter hostnames or ip addresses
-#   - A hostname/ip can be a member of multiple groups
-
 [groupa]
 ncrnginx1.linux.core.ncrnet.us
 ncrdocker1.linux.core.ncrnet.us
@@ -27,6 +19,19 @@ ncriamsprov2.linux.core.ncrnet.us
 ncriamsdir2.linux.core.ncrnet.us
 ncriamsproxyncr2.linux.core.ncrnet.us
 ipa2fa2.linux.core.ncrnet.us
+
+[dirs]
+ncriamsdir1.linux.core.ncrnet.us
+ncriamsdir2.linux.core.ncrnet.us
+
+[proxy]
+ncriamsproxy1.linux.core.ncrnet.us
+ncriamsproxyncr1.linux.core.ncrnet.us
+ncriamsproxyncr2.linux.core.ncrnet.us
+
+[prov]
+ncriamsprov1.linux.core.ncrnet.us
+ncriamsprov2.linux.core.ncrnet.us
 
 [group_server]
 ncrstorage1.linux.core.ncrnet.us
