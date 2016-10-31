@@ -2,8 +2,9 @@
 
 - hosts: test
   roles:
+    - goozbach.EPEL
     - common
 
-- hosts: test
-  roles:
-    - yum_updates
+#- hosts: test
+#  roles:
+#    - yum_updates
