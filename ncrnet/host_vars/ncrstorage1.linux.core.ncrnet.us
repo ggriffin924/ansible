@@ -1,0 +1,8 @@
+---
+# file: hostvars/ncrstorage1.linux.core.ncrnet.us
+#
+# Try not to use host vars opt instead to use group_vars
+# whenever possible. Its a better practice.
+
+foo_agent_port: 86
+bar_agent_port: 99

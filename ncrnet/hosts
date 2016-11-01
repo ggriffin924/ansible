@@ -33,6 +33,11 @@ ncriamsproxyncr2.linux.core.ncrnet.us
 ncriamsprov1.linux.core.ncrnet.us
 ncriamsprov2.linux.core.ncrnet.us
 
+[docker]
+ncrdocker1.linux.core.ncrnet.us
+ncrdocker2.linux.core.ncrnet.us
+ncrdocker3.linux.core.ncrnet.us
+
 [group_server]
 ncrstorage1.linux.core.ncrnet.us
 
@@ -40,3 +45,4 @@ ncrstorage1.linux.core.ncrnet.us
 ncrdocker3.linux.core.ncrnet.us
 ncrdocker2.linux.core.ncrnet.us
 ncrdocker1.linux.core.ncrnet.us
+ncrstorage1.linux.core.ncrnet.us

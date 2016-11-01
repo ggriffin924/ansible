@@ -1,0 +1,4 @@
+---
+# file: group_vars/docker
+ntp: ntp-docker.example.com
+backup: docker-backup.example.com

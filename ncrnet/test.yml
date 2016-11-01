@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: This is my shell test
+      shell: >
+         echo "hello"
+         echo "line2" this is some more text.
+
