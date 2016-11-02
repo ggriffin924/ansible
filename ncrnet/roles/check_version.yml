@@ -1,6 +1,7 @@
 ---
 # Apply Yum updates then wait for the reboot of the server
 #
+#
 - hosts: groupa, groupb
   remote_user: ggriffin
   become_method: sudo
