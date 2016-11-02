@@ -1,9 +1,10 @@
 ---
 
-- hosts: test
+- hosts: test, freeipa
   roles:
-    - goozbach.EPEL
+    - ncrnet.EPEL
     - common
+    - firewalld
 
 #- hosts: test
 #  roles:

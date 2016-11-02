@@ -1,0 +1,8 @@
+---
+# Make sure puppet is installed and running.
+#
+
+- name: Puppet check and install
+  tags:
+      - install
+  yum: name=puppet state=present

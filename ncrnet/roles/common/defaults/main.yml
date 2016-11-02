@@ -18,6 +18,8 @@ common_packages:
   - unzip         # archiving tool
   - gzip          # archiving tool
 
+group_packages: []  # default is empty list
+
 
 # User related vars
 #

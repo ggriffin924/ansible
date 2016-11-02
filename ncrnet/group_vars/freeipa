@@ -1,0 +1,16 @@
+---
+
+#
+# Firewall vars very important to get right for each group.
+# default is for these to be perminent.
+firewalld_allow_services:
+  - { service: "https" }
+  - { service: "kerberos" }
+  - { service: "kpasswd" }
+  - { service: "ldap" }
+  - { service: "ldaps" }
+  - { service: "ntp" }
+
+firewalld_allow_ports:
+  - { port: "53/tcp" }   # bind
+  - { port: "53/udp" }   # bind

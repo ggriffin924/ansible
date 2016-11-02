@@ -1,0 +1,9 @@
+---
+# file: group_vars/group_server
+group_packages: 
+   - git
+   - puppetserver
+
+crit_processes:   # make sure these are always running
+  - puppetserver
+

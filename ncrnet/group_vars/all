@@ -11,3 +11,11 @@ sshd_passwdauth: yes
 
 # network interface defaults
 
+# processes to restart if stoped.
+crit_processes:   # make sure these are always running
+  - puppet
+
+# Firewall
+
+firewalld_allow_services:
+  - { service: "ssh" }
