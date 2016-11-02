@@ -4,7 +4,7 @@
   roles:
     - ncrnet.EPEL
     - common
-    - firewalld
+    - ncrnet.firewalld
 
 #- hosts: test
 #  roles:
