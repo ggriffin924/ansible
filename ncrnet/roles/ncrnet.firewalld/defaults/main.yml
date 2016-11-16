@@ -2,5 +2,6 @@
 #
 # Default is a empty list!
 #
+firewalld_enabled: no
 firewalld_allow_services: []
 firewalld_allow_ports: []

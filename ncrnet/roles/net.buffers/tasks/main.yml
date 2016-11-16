@@ -1,0 +1,13 @@
+---
+# set network buffers with proper vars.
+# then restart network service
+#
+
+- name: clear old files
+  file: path=/etc/NetworkManager/dispatcher.d/20-ethtool state=absent
+
+
+- name: Set network buffers
+  template: src=20-ethtool.j2 dest=/etc/NetworkManager/dispatcher.d/25-ethtool mode=0751
+#  template: src=20-ethtool.j2 dest=/tmp/20-ethtool mode=0751
+  notify: restart network service

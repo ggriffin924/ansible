@@ -1,0 +1,10 @@
+#!/bin/bash
+# managed by ansible
+#
+# A manual change of this file will be over written by the ansible.
+# {{ ansible_default_ipv4.interface }}
+
+if [[ $1 = "{{ ansible_default_ipv4.interface }}" && $2 = "up" ]]; then
+/sbin/ethtool -G {{ ansible_default_ipv4.interface }} rx 4096 tx 4096
+fi
+

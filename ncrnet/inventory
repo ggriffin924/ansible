@@ -29,13 +29,18 @@ ncriamsproxy1.linux.core.ncrnet.us
 ncriamsproxyncr1.linux.core.ncrnet.us
 ncriamsproxyncr2.linux.core.ncrnet.us
 
+[grep:children]
+dirs
+proxy
+prov
+
 [prov]
 ncriamsprov1.linux.core.ncrnet.us
 ncriamsprov2.linux.core.ncrnet.us
 
 [docker]
 ncrdocker1.linux.core.ncrnet.us
-ncrdocker2.linux.core.ncrnet.us
+# ncrdocker2.linux.core.ncrnet.us
 ncrdocker3.linux.core.ncrnet.us
 
 [group_server]
@@ -44,7 +49,11 @@ ncrstorage1.linux.core.ncrnet.us
 [freeipa]
 ncripadc1.linux.core.ncrnet.us
 
-[test]
-ncrdocker3.linux.core.ncrnet.us
-ncrdocker2.linux.core.ncrnet.us
-ncrdocker1.linux.core.ncrnet.us
+[ipa2fa]
+ipa2fa1.linux.core.ncrnet.us
+ipa2fa2.linux.core.ncrnet.us
+
+[test:children]
+freeipa
+ipa2fa
+docker

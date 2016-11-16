@@ -1,0 +1,27 @@
+---
+- hosts: grep
+
+  gather_facts: no
+
+  vars:
+    - username: wickens
+  tasks:
+    - name: Search Access Log for {{ username }}
+      shell: grep -i {{ username }} /home/tremolo/tremolo_logs/*access.log
+      register: access_check
+      failed_when: "'FAILED' in access_check.stderr"
+      changed_when: false
+
+    - name: Search Tremlo Logs for {{ username }}
+      shell: grep -i {{ username }} /home/tremolo/tremolo_logs/tremolo-service.log
+      register: tremolo_check
+      failed_when: "'FAILED' in tremolo_check.stderr"
+      changed_when: false
+
+
+    - debug: msg={{ access_check.stdout_lines }}
+      when: access_check.stdout_lines
+
+    - debug: msg={{ tremolo_check.stdout_lines }}
+      when: tremolo_check.stdout_lines
+

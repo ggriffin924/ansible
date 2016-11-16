@@ -10,10 +10,16 @@ crit_processes:   # make sure these are always running
 #
 # Firewall vars very important to get right for each group.
 # default is for these to be perminent.
+firewalld_enabled: No
+
 firewalld_allow_services:
   - { service: "https" }
+  - { service: "mysql" }
 firewalld_allow_ports:
   - { port: "80/tcp", state: "disabled" }  # example how to block a port from being opened.
   - { port: "4567-4568/tcp" }
   - { port: "4567/udp" }
+  - { port: "8161/tcp" }
+  - { port: "4444/tcp" }
+  - { port: "61616/tcp" }
 

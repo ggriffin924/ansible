@@ -6,3 +6,10 @@
   tags:
       - install
   yum: name=puppet state=present
+
+
+- name: Puppet ensure running and enabled at boot
+  tags:
+      - install
+  service: name=puppet state=started enabled=yes
+
