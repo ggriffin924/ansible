@@ -1,0 +1,50 @@
+---
+# Apply Yum updates then wait for the reboot of the server
+#
+- hosts: groupb
+  remote_user: ggriffin
+  become_method: sudo
+  become: Yes
+  become_user: root
+
+  tasks:
+
+
+     - name: Perform yum update
+       yum: name=* state=latest update_cache=yes
+
+     - name: Check for Unison Service
+       command: rpm -q unison
+       register: rpm_check
+       changed_when: False
+       failed_when: rpm_check.rc > 1
+       args:
+         warn: no
+
+     - name: Verified Unison is installed
+       service: name=unison state=started enabled=yes
+       when: rpm_check.rc == 0
+
+     - name: Check for reboot hint
+       # rpm -q kernel --queryformat '%{installtime} %{version}-%{release}.%{arch}\n' | sort -n -k1 | tail -1 | cut -d ' ' -f 2
+       # shell: if [ $(rpm -q kernel | sort -Vr | head -n 1) != kernel-$(uname -r) ]; then echo 'reboot'; else echo 'no'; fi
+       shell: if [ $(rpm -q kernel --queryformat '%{installtime} %{version}-%{release}.%{arch}\n' | sort -n -k1 | tail -1 | cut -d ' ' -f 2) != $(uname -r) ]; then echo 'reboot'; else echo 'no'; fi
+       ignore_errors: true
+       register: reboot_hint
+
+     - name: Rebooting
+       shell: sleep 2 && shutdown -r now
+       async: 1
+       poll: 0
+       ignore_errors: true
+       when: reboot_hint.stdout == 'reboot'
+
+     - name: wait for server to come back
+       local_action: wait_for host={{ inventory_hostname }} state=started port=22 delay=30 timeout=200 connect_timeout=15
+       when: reboot_hint.stdout == 'reboot'
+
+     - name: Check to see if server is back up
+       shell: uptime
+
+
+...

@@ -1,0 +1,13 @@
+---
+- hosts: grep
+
+  gather_facts: no
+
+  tasks:
+    - shell: ps -eo pcpu,user,args | sort -r -k1 | head -n5
+      register: ps_check
+      changed_when: false
+
+    - debug: var=ps_check.stdout_lines
+      when: ps_check.stdout_lines
+
