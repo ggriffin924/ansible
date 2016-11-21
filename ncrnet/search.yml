@@ -4,7 +4,7 @@
   gather_facts: no
 
   vars:
-    - username: wickens
+    - username: default
   tasks:
     - name: Search Access Log for {{ username }}
       shell: grep -i {{ username }} /home/tremolo/tremolo_logs/*access.log
