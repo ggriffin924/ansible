@@ -5,3 +5,6 @@
 
   - name: install vim
     yum: pkg=vim state=installed
+
+  - name: insure git is up to date
+    yum: pkg=git state=latest
