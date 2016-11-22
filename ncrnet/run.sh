@@ -2,6 +2,6 @@
 
 #
 
-/usr/bin/ansible-playbook -i hosts site.yml -v
+/usr/bin/ansible-playbook -i inventory site.yml -v
 
 

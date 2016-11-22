@@ -54,6 +54,5 @@ ipa2fa1.linux.core.ncrnet.us
 ipa2fa2.linux.core.ncrnet.us
 
 [test:children]
-freeipa
 ipa2fa
 docker
