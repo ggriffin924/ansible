@@ -1,13 +1,15 @@
 ---
 - hosts: localhost
   gather_facts: no
+  remote_user: root
 
-   var:
+  vars:
+      myuser: "ggriffin"
       grouplist: "adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,spi,i2c,gpio"
 
-
-   tasks:
+  tasks:
       - name: Adding user {{ myuser }} to groups
-        shell: >
-           echo "Adding {{ myuser }} now
-           usermod -a -G {{ grouplist }} {{ myuser }}
+        user:
+           name: "{{ myuser }}"
+           groups: "{{ grouplist }}"
+           append: yes
