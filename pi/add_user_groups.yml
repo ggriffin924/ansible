@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: no
+
+   var:
+      grouplist: "adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,spi,i2c,gpio"
+
+
+   tasks:
+      - name: Adding user {{ myuser }} to groups
+        shell: >
+           echo "Adding {{ myuser }} now
+           usermod -a -G {{ grouplist }} {{ myuser }}
