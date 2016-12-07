@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: no
+  remote_user: root
+
+  vars:
+      myuser: "ggriffin"
+      grouplist: "adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,spi,i2c,gpio"
+
+  tasks:
+      - name: Adding user {{ myuser }} to groups
+        user:
+           name: "{{ myuser }}"
+           groups: "{{ grouplist }}"
+           append: yes
