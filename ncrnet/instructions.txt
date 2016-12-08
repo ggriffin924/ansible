@@ -1,0 +1,11 @@
+######
+# Dev ops instructions
+######
+
+To view or edit an encrypted vault.yml file, use either ansible-vault view <file> or ansible-vault edit <file> .
+ Avoid using the decrypt command. Any time you decrypt a file, you risk forgetting to re-encrypt the file before 
+committing changes to your repo.
+
+main site script is site.yml to run this file use "./run.sh"
+
+
