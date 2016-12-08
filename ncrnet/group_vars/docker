@@ -4,6 +4,7 @@ ntp: ntp-docker.example.com
 backup: docker-backup.example.com
 group_packages:   # these are the packages only the docker host will need
   - docker
+  - sos
 
 crit_processes:   # make sure these are always running
   - docker

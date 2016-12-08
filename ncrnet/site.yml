@@ -1,13 +1,10 @@
 ---
 
-- hosts: test
+- hosts: docker
   roles:
     - ncrnet.EPEL
     - common
-#    - ncrnet.firewalld
-    - puppet
+# dont enable until fixed   - ncrnet.firewalld
+#     - puppet
     - net.buffers
-
-#- hosts: test
-#  roles:
-#    - yum_updates
+    - ntpq
