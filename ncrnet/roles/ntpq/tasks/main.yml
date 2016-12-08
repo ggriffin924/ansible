@@ -1,0 +1,9 @@
+---
+# copy the ntp.conf to the /etc/ntp.conf
+# then restart the ntp service
+#
+
+
+- name: Copy ntp.conf to /etc/ntp.conf
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf mode=0751
+  notify: restart ntp service

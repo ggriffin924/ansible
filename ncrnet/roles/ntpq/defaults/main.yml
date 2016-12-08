@@ -1,0 +1,5 @@
+---
+# these can be overridden by the VARs directory vars.
+#
+ntp_server1: "76.9.128.171 iburst"
+ntp_server2: "76.9.128.114"

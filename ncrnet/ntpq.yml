@@ -1,0 +1,13 @@
+---
+- hosts: grep
+
+  gather_facts: no
+
+  tasks:
+    - shell: ntpq -p
+      register: ntpq_check
+      changed_when: false
+
+    - debug: var=ntpq_check.stdout_lines
+      when: ntpq_check.stdout_lines
+

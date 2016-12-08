@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  roles:
+    - ncrnet.EPEL
+    - common
+# dont enable until fixed   - ncrnet.firewalld
+#     - puppet
+    - net.buffers
+    - ntpq

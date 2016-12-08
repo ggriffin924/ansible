@@ -1,0 +1,25 @@
+# This file is mananage by ****DEV OPS**** as ncrnet.
+# Manual changes to this file will be overwritten
+# on a regular basis.
+#
+# If you need a change made to this file notify
+# Griffin for a change request.
+#
+#
+driftfile /var/lib/ntp/drift
+restrict default nomodify notrap nopeer noquery
+#
+restrict 127.0.0.1
+restrict -6 ::1
+#
+server {{ ntp_server1 }}
+server {{ ntp_server2 }}
+#
+# Enable public key cryptography.
+#crypto
+#
+includefile /etc/ntp/crypto/pw
+#
+# Key file containing the keys and key identifiers used when operating
+# with symmetric key cryptography.
+keys /etc/ntp/keys
