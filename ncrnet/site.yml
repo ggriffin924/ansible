@@ -1,6 +1,6 @@
 ---
 
-- hosts: docker
+- hosts: all
   roles:
     - ncrnet.EPEL
     - common
