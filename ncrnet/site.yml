@@ -2,9 +2,12 @@
 
 - hosts: all
   roles:
-    - ncrnet.EPEL
-    - common
+    - { role: ncrnet.EPEL, tags: [ 'epel' ]}
+    - { role: common, tags: [ 'packages', 'testonly' ]}
 # dont enable until fixed   - ncrnet.firewalld
-#     - puppet
     - net.buffers
     - ntpq
+# local proxy servers have apache temp fix.
+- hosts: local_proxy
+  roles:
+    - apache

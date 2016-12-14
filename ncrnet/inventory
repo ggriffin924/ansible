@@ -29,9 +29,16 @@ ipa2fa2.linux.core.ncrnet.us
 [dirs]
 ncriamsdir1.linux.core.ncrnet.us
 ncriamsdir2.linux.core.ncrnet.us
-# ******* Proxy servers *******
-[proxy]
-ncriamsproxy1.linux.core.ncrnet.us
+# ******* All Proxy servers *******
+[proxy:children]
+local_proxy
+remote_proxy
+# Local proxy servers
+[local_proxy]
+ncriamsproxy1.linux.core.ncrnet.us  # 192.168.11.11
+ncriamsproxy2.linux.core.ncrnet.us  # 192.168.11.31
+# Remote proxy servers
+[remote_proxy]
 ncriamsproxyncr1.linux.core.ncrnet.us
 ncriamsproxyncr2.linux.core.ncrnet.us
 # ******* Grep utility group there servers contain logs that are serched on ******

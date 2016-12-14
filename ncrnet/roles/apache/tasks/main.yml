@@ -1,0 +1,18 @@
+---
+# tasks file for apache
+#
+#
+#
+#
+-name: httpd.conf file
+ template: src=httpd.conf.j2 dest=/etc/httpd/conf/httpd.conf
+
+ notify: 
+   restart apache service
+
+
+- name: Install Apache
+  tags:
+      - install
+  yum: name=httpd state=present
+
