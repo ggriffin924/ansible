@@ -1,18 +1,18 @@
 ---
-# tasks file for mongodb
+# tasks file for mongodb install
 #
-# Install Repo
-- name: Copy mongodb repo
-  tags:
-      - install
 
+- name: Add MongoDB Repository
+  yum_repository:
+    name: MongoDBRepository
+    description: MongoDB.org Repository
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+    gpgkey: https://www.mongodb.org/static/pgp/server-3.4.asc
+    gpgcheck: yes
 
+- name: Install MongoDB via yum
+  yum: name=mongodb-org state=latest
 
-# Install MongoDB
-- name: Install mongo yum package
-  tags:
-    - install
-  yum: name=mongodb-org state=present
 
 # Ensure directory for keyfile exists.
 - name: Directory for keyfile
@@ -23,6 +23,11 @@
     state: "directory"
     owner: "mongod"
     group: "mongod"
+
+- name: Copy key to mongo_info
+  copy: src=MyKey.asc dest=/opt/mongo_info/MyKey.asc mode=0400 
+
+
 
 
 # Ensure MongoDB running

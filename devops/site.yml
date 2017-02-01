@@ -1,11 +1,12 @@
-#!/usr/bin/ansible-playbook --inventory=hosts --tags "delete users"
+# Site file for dev KeyCloak cluster of 3 servers
+# Mongo DB driven cluster
+#
 ---
-- name: Show off some basic Ansible features
-  hosts: main 
+- hosts: mongodb
   remote_user: "{{ ansible_user }}" 
   become_method: sudo 
   become: true
   become_user: root
 
   roles:
-    - common
+    - mongodb
