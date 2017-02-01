@@ -1,2 +1,11 @@
 ---
 # defaults file for mongodb
+
+mongodb_enabled: yes
+mongodb_install: yes
+
+daemon: mongod
+mongodb_conf_bind_ip: 127.0.0.1
+mongodb_conf_port: 27017                          # Specify port number
+
+
