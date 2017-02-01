@@ -1,0 +1,82 @@
+---
+# Standard tools and server setup
+#   Will need to add some packages over time
+#
+
+
+# pre_tasks:
+
+- name: get date
+  command: date
+  register: output
+  tags:
+      - always
+
+- name: create begin maintenance log message
+  shell: echo {{output.stdout}} - {{ inventory_hostname }} -  Ansible begin maintenance >> /var/log/ansible-maint.log
+  delegate_to: 127.0.0.1
+  tags:
+      - always
+
+#### old
+
+- name: Check OS version and family
+  fail:
+      msg: "This role can only be run agaist RHEL 7. {{ ansible_distribution }} {{ ansible_distribution_major_version }} is not supported."
+  when:
+      - ansible_os_family == 'RedHat'
+      - ansible_distribution_major_version | version_compare('7', '!=')
+  tags:
+      - always
+
+
+- name: Install all packages
+  tags:
+      - always
+  yum: name={{ item }} state=present
+  with_items:
+    - htop
+    - vim
+
+- name: Create list of users
+  tags:
+    - create users
+  user: name={{ item }} generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa groups=wheel append=yes
+  with_items:
+    - testuser1
+    - testuser2
+    - testuser3
+    - testuser4
+    - testuser5
+    - testuser6
+
+- name: Delete list of users
+  tags:
+    - delete users
+  user: name={{ item }} state=absent remove=yes
+  with_items:
+    - testuser1
+    - testuser2
+    - testuser3
+    - testuser4
+    - testuser5
+    - testuser6
+    - puppet
+
+# post_tasks:
+
+- name: get date
+  command: date
+  register: output
+  tags:
+      - always
+
+- name: create end maintenance log message
+  shell: echo {{output.stdout}} - {{ inventory_hostname }} -  Ansible end maintenance >> /var/log/ansible-maint.log
+  delegate_to: 127.0.0.1
+  tags:
+      - always
+
+
+
+

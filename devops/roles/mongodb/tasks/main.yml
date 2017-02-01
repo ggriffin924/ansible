@@ -1,0 +1,35 @@
+---
+# tasks file for mongodb
+#
+# Install Repo
+- name: Copy mongodb repo
+  tags:
+      - install
+
+
+
+# Install MongoDB
+- name: Install mongo yum package
+  tags:
+    - install
+  yum: name=mongodb-org state=present
+
+# Ensure directory for keyfile exists.
+- name: Directory for keyfile
+  tags:
+    - install
+  file:
+    path: "/opt/mongo_info"
+    state: "directory"
+    owner: "mongod"
+    group: "mongod"
+
+
+# Ensure MongoDB running
+- name: Enabling MongoDB on boot and starting 
+  service: 
+    name: "mongod" 
+    state: started 
+    enabled: yes 
+
+
