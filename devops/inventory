@@ -3,6 +3,7 @@
 #
 # This is curently only in dev.
 # Need to integrate with Ansible Vault to encrypt a key for production
+#
 
 [ansible_server]
 centos01.fairfax.local
@@ -16,6 +17,9 @@ keycloak3
 mongo1
 mongo2
 mongo3
+
+[localonly]
+mongo1
 
 [testing]
 centos04.fairfax.local
