@@ -1,0 +1,5 @@
+- name: Set up configuration parameters
+  set_fact:
+    mongodb_daemon_name: "{{ daemon }}"
+
+
