@@ -1,0 +1,284 @@
+Calling the playbook for falls
+
+PLAY [grep] ********************************************************************
+
+TASK [Search Access Log for falls] *********************************************
+ok: [ncriamsproxy2.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log
+
+start: 2017-03-16 11:34:18.727277
+
+end: 2017-03-16 11:34:18.739188
+
+delta: 0:00:00.011911
+ok: [ncriamsproxyncr1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log
+
+start: 2017-03-16 11:33:44.885006
+
+end: 2017-03-16 11:33:44.900766
+
+delta: 0:00:00.015760
+ok: [ncriamsproxy1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log
+
+start: 2017-03-16 11:34:18.731949
+
+end: 2017-03-16 11:34:18.743422
+
+delta: 0:00:00.011473
+ok: [ncriamsdir1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log
+
+start: 2017-03-16 11:34:19.094724
+
+end: 2017-03-16 11:34:19.335081
+
+delta: 0:00:00.240357
+ok: [ncriamsproxyncr2.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log
+
+start: 2017-03-16 11:34:19.458122
+
+end: 2017-03-16 11:34:19.467374
+
+delta: 0:00:00.009252
+ok: [ncriamsprov2.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log
+
+start: 2017-03-16 11:34:19.443841
+
+end: 2017-03-16 11:34:19.455629
+
+delta: 0:00:00.011788
+ok: [ncriamsprov1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log
+
+start: 2017-03-16 11:34:19.523199
+
+end: 2017-03-16 11:34:19.537994
+
+delta: 0:00:00.014795
+ok: [ncriamsdir2.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log
+
+start: 2017-03-16 11:34:19.523873
+
+end: 2017-03-16 11:34:19.682137
+
+delta: 0:00:00.158264
+
+TASK [Search Tremlo Logs for falls] ********************************************
+ok: [ncriamsdir1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/tremolo-service.log
+
+start: 2017-03-16 11:34:20.500343
+
+end: 2017-03-16 11:34:20.507216
+
+delta: 0:00:00.006873
+ok: [ncriamsdir2.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/tremolo-service.log
+
+start: 2017-03-16 11:34:20.589548
+
+end: 2017-03-16 11:34:20.596393
+
+delta: 0:00:00.006845
+ok: [ncriamsproxy2.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/tremolo-service.log
+
+start: 2017-03-16 11:34:20.615841
+
+end: 2017-03-16 11:34:20.637326
+
+delta: 0:00:00.021485
+ok: [ncriamsproxyncr1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/tremolo-service.log
+
+start: 2017-03-16 11:33:46.776223
+
+end: 2017-03-16 11:33:46.783666
+
+delta: 0:00:00.007443
+ok: [ncriamsproxy1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/tremolo-service.log
+
+start: 2017-03-16 11:34:20.607531
+
+end: 2017-03-16 11:34:20.624557
+
+delta: 0:00:00.017026
+ok: [ncriamsproxyncr2.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/tremolo-service.log
+
+start: 2017-03-16 11:34:21.182069
+
+end: 2017-03-16 11:34:21.188659
+
+delta: 0:00:00.006590
+ok: [ncriamsprov2.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/tremolo-service.log
+
+start: 2017-03-16 11:34:21.262358
+
+end: 2017-03-16 11:34:21.269223
+
+delta: 0:00:00.006865
+ok: [ncriamsprov1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/tremolo-service.log
+
+start: 2017-03-16 11:34:21.280721
+
+end: 2017-03-16 11:34:21.289014
+
+delta: 0:00:00.008293
+
+TASK [Search Access older Log for falls] ***************************************
+ok: [ncriamsproxy2.linux.core.ncrnet.us]
+
+stdout: /home/tremolo/tremolo_logs/ldap-access.log.2017-02-08:[2017-02-08 16:13:07,669] SRCH op=558 con=557 base='CN=External,ou=core-ncrnet-us,o=Tremolo' filter='(&(objectClass=inetOrgPerson)(mail=chamilton@fallschurchva.gov))' scope='2' attribs=''
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log.2017-02-*
+
+start: 2017-03-16 11:34:22.134289
+
+end: 2017-03-16 11:34:22.244953
+
+delta: 0:00:00.110664
+
+stdout: /home/tremolo/tremolo_logs/ldap-access.log.2017-02-08:[2017-02-08 16:13:07,669] SRCH op=558 con=557 base='CN=External,ou=core-ncrnet-us,o=Tremolo' filter='(&(objectClass=inetOrgPerson)(mail=chamilton@fallschurchva.gov))' scope='2' attribs=''
+ok: [ncriamsproxy1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log.2017-02-*
+
+start: 2017-03-16 11:34:22.198574
+
+end: 2017-03-16 11:34:22.323312
+
+delta: 0:00:00.124738
+ok: [ncriamsproxyncr1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log.2017-02-*
+
+start: 2017-03-16 11:33:48.361637
+
+end: 2017-03-16 11:33:48.534119
+
+delta: 0:00:00.172482
+ok: [ncriamsproxyncr2.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log.2017-02-*
+
+start: 2017-03-16 11:34:22.912403
+
+end: 2017-03-16 11:34:23.047605
+
+delta: 0:00:00.135202
+ok: [ncriamsprov2.linux.core.ncrnet.us]
+
+stdout: /home/tremolo/tremolo_logs/ldap-access.log.2017-02-07:[2017-02-07 13:32:10,758] SRCH op=6551 con=6550 base='CN=khenry@fallschurchva.gov,CN=Shadow,ou=core-ncrnet-us,o=Tremolo' filter='(mail=*)' scope='0' attribs='givenName sn displayName mail telephoneNumber title '
+/home/tremolo/tremolo_logs/ldap-access.log.2017-02-07:[2017-02-07 13:32:20,541] SRCH op=7457 con=7456 base='CN=gstone@fallschurchva.gov,CN=Shadow,ou=core-ncrnet-us,o=Tremolo' filter='(mail=*)' scope='0' attribs='givenName sn displayName mail telephoneNumber title '
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log.2017-02-*
+
+start: 2017-03-16 11:34:22.994578
+
+end: 2017-03-16 11:34:23.139889
+
+delta: 0:00:00.145311
+
+stdout: /home/tremolo/tremolo_logs/ldap-access.log.2017-02-07:[2017-02-07 13:32:10,758] SRCH op=6551 con=6550 base='CN=khenry@fallschurchva.gov,CN=Shadow,ou=core-ncrnet-us,o=Tremolo' filter='(mail=*)' scope='0' attribs='givenName sn displayName mail telephoneNumber title '
+/home/tremolo/tremolo_logs/ldap-access.log.2017-02-07:[2017-02-07 13:32:20,541] SRCH op=7457 con=7456 base='CN=gstone@fallschurchva.gov,CN=Shadow,ou=core-ncrnet-us,o=Tremolo' filter='(mail=*)' scope='0' attribs='givenName sn displayName mail telephoneNumber title '
+ok: [ncriamsprov1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log.2017-02-*
+
+start: 2017-03-16 11:34:23.070340
+
+end: 2017-03-16 11:34:23.256293
+
+delta: 0:00:00.185953
+ok: [ncriamsdir2.linux.core.ncrnet.us]
+
+stdout: /home/tremolo/tremolo_logs/ldap-access.log.2017-02-07:[2017-02-07 13:32:10,760] SRCH op=219641 con=219640 base='CN=khenry@fallschurchva.gov,CN=Shadow,ou=core-ncrnet-us,o=Tremolo' filter='(mail=*)' scope='0' attribs='givenName sn displayName mail telephoneNumber title '
+/home/tremolo/tremolo_logs/ldap-access.log.2017-02-07:[2017-02-07 13:32:20,543] SRCH op=221453 con=221452 base='CN=gstone@fallschurchva.gov,CN=Shadow,ou=core-ncrnet-us,o=Tremolo' filter='(mail=*)' scope='0' attribs='givenName sn displayName mail telephoneNumber title '
+/home/tremolo/tremolo_logs/ldap-access.log.2017-02-08:[2017-02-08 16:13:07,672] SRCH op=29711 con=29710 base='CN=External,ou=core-ncrnet-us,o=Tremolo' filter='(&(objectClass=inetOrgPerson)(mail=chamilton@fallschurchva.gov))' scope='2' attribs=''
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log.2017-02-*
+
+start: 2017-03-16 11:34:22.121581
+
+end: 2017-03-16 11:34:32.409037
+
+delta: 0:00:10.287456
+
+stdout: /home/tremolo/tremolo_logs/ldap-access.log.2017-02-07:[2017-02-07 13:32:10,760] SRCH op=219641 con=219640 base='CN=khenry@fallschurchva.gov,CN=Shadow,ou=core-ncrnet-us,o=Tremolo' filter='(mail=*)' scope='0' attribs='givenName sn displayName mail telephoneNumber title '
+/home/tremolo/tremolo_logs/ldap-access.log.2017-02-07:[2017-02-07 13:32:20,543] SRCH op=221453 con=221452 base='CN=gstone@fallschurchva.gov,CN=Shadow,ou=core-ncrnet-us,o=Tremolo' filter='(mail=*)' scope='0' attribs='givenName sn displayName mail telephoneNumber title '
+/home/tremolo/tremolo_logs/ldap-access.log.2017-02-08:[2017-02-08 16:13:07,672] SRCH op=29711 con=29710 base='CN=External,ou=core-ncrnet-us,o=Tremolo' filter='(&(objectClass=inetOrgPerson)(mail=chamilton@fallschurchva.gov))' scope='2' attribs=''
+ok: [ncriamsdir1.linux.core.ncrnet.us]
+
+cmd: grep -i falls /home/tremolo/tremolo_logs/*access.log.2017-02-*
+
+start: 2017-03-16 11:34:22.137859
+
+end: 2017-03-16 11:34:33.324760
+
+delta: 0:00:11.186901
+
+TASK [debug] *******************************************************************
+skipping: [ncriamsdir1.linux.core.ncrnet.us]
+skipping: [ncriamsdir2.linux.core.ncrnet.us]
+skipping: [ncriamsproxy1.linux.core.ncrnet.us]
+skipping: [ncriamsproxy2.linux.core.ncrnet.us]
+skipping: [ncriamsproxyncr1.linux.core.ncrnet.us]
+skipping: [ncriamsproxyncr2.linux.core.ncrnet.us]
+skipping: [ncriamsprov1.linux.core.ncrnet.us]
+skipping: [ncriamsprov2.linux.core.ncrnet.us]
+
+TASK [debug] *******************************************************************
+skipping: [ncriamsdir1.linux.core.ncrnet.us]
+skipping: [ncriamsdir2.linux.core.ncrnet.us]
+skipping: [ncriamsproxy1.linux.core.ncrnet.us]
+skipping: [ncriamsproxy2.linux.core.ncrnet.us]
+skipping: [ncriamsproxyncr1.linux.core.ncrnet.us]
+skipping: [ncriamsproxyncr2.linux.core.ncrnet.us]
+skipping: [ncriamsprov1.linux.core.ncrnet.us]
+skipping: [ncriamsprov2.linux.core.ncrnet.us]
+
+TASK [debug] *******************************************************************
+skipping: [ncriamsdir1.linux.core.ncrnet.us]
+skipping: [ncriamsproxy1.linux.core.ncrnet.us]
+skipping: [ncriamsproxy2.linux.core.ncrnet.us]
+skipping: [ncriamsdir2.linux.core.ncrnet.us]
+skipping: [ncriamsproxyncr1.linux.core.ncrnet.us]
+skipping: [ncriamsproxyncr2.linux.core.ncrnet.us]
+skipping: [ncriamsprov1.linux.core.ncrnet.us]
+skipping: [ncriamsprov2.linux.core.ncrnet.us]
+
+PLAY RECAP *********************************************************************
+ncriamsdir1.linux.core.ncrnet.us : ok=3    changed=0    unreachable=0    failed=0   
+ncriamsdir2.linux.core.ncrnet.us : ok=3    changed=0    unreachable=0    failed=0   
+ncriamsprov1.linux.core.ncrnet.us : ok=3    changed=0    unreachable=0    failed=0   
+ncriamsprov2.linux.core.ncrnet.us : ok=3    changed=0    unreachable=0    failed=0   
+ncriamsproxy1.linux.core.ncrnet.us : ok=3    changed=0    unreachable=0    failed=0   
+ncriamsproxy2.linux.core.ncrnet.us : ok=3    changed=0    unreachable=0    failed=0   
+ncriamsproxyncr1.linux.core.ncrnet.us : ok=3    changed=0    unreachable=0    failed=0   
+ncriamsproxyncr2.linux.core.ncrnet.us : ok=3    changed=0    unreachable=0    failed=0   
+
