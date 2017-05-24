@@ -8,27 +8,32 @@
 # ***** Group A ******* normally patched first
 [groupa] 
 ncrnginx1.linux.core.ncrnet.us
-ncrdocker1.linux.core.ncrnet.us
-ncrdocker2.linux.core.ncrnet.us
 ncriamsproxy1.linux.core.ncrnet.us
 ncriamsproxyncr1.linux.core.ncrnet.us
 ncriamsdir1.linux.core.ncrnet.us
-ipa2fa1.linux.core.ncrnet.us
 ncriamsprov1.linux.core.ncrnet.us
 ncripadc1.linux.core.ncrnet.us
+ncriamsdb1.linux.core.ncrnet.us
+ncriamsdb2.linux.core.ncrnet.us
+ncriamsamq1.linux.core.ncrnet.us
+
 # ****** Group B ******* normally with all these boxes offline there is no service outage
 [groupb]
-ncrdocker3.linux.core.ncrnet.us
-ncriamsproxyncr1.linux.core.ncrnet.us
 ncriamsproxy2.linux.core.ncrnet.us
 ncriamsprov2.linux.core.ncrnet.us
 ncriamsdir2.linux.core.ncrnet.us
 ncriamsproxyncr2.linux.core.ncrnet.us
-ipa2fa2.linux.core.ncrnet.us
+ncriamsdb3.linux.core.ncrnet.us
+ncriamsamq2.linux.core.ncrnet.us
+ncripadc2.linux.core.ncrnet.us
 # ******* Directory servers *******
 [dirs]
 ncriamsdir1.linux.core.ncrnet.us
 ncriamsdir2.linux.core.ncrnet.us
+# ******* ncriamsamq1.linux.core.ncrnet.us
+[amq]
+ncriamsamq1.linux.core.ncrnet.us
+ncriamsamq2.linux.core.ncrnet.us
 # ******* All Proxy servers *******
 [proxy:children]
 local_proxy
@@ -64,11 +69,21 @@ ncrstorage1.linux.core.ncrnet.us
 #  to login.  
 [freeipa]
 ncripadc1.linux.core.ncrnet.us
+ncripadc2.linux.core.ncrnet.us
 
-[ipa2fa]
-ipa2fa1.linux.core.ncrnet.us
-ipa2fa2.linux.core.ncrnet.us
+# [ipa2fa]
+# ipa2fa1.linux.core.ncrnet.us
+# ipa2fa2.linux.core.ncrnet.us
 # ***** Current group to run devops testing on for basic config changes ******
 [test:children]
-ipa2fa
+database
+[database]
+ncriamsdb1.linux.core.ncrnet.us
+ncriamsdb2.linux.core.ncrnet.us
+ncriamsdb3.linux.core.ncrnet.us
 
+[owncloud]
+ncrowncloud1.linux.core.ncrnet.us
+
+[80053_hosts]
+ncriamsdb3.linux.core.ncrnet.us

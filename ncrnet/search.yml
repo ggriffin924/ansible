@@ -18,10 +18,19 @@
       failed_when: "'FAILED' in tremolo_check.stderr"
       changed_when: false
 
+    - name: Search Access older Log for {{ username }}
+      shell: grep -i {{ username }} /home/tremolo/tremolo_logs/*access.log.2017-02-*
+      register: access_check2
+      failed_when: "'FAILED' in access_check2.stderr"
+      changed_when: false
 
     - debug: msg={{ access_check.stdout_lines }}
       when: access_check.stdout_lines
 
     - debug: msg={{ tremolo_check.stdout_lines }}
       when: tremolo_check.stdout_lines
+
+    - debug: msg={{ access_check2.stdout_lines }}
+      when: access_check.stdout_lines
+
 
