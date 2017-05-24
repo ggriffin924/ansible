@@ -1,0 +1,23 @@
+# Site file for dev KeyCloak cluster of 3 servers
+# Mongo DB driven cluster
+#
+---
+- hosts: mongodb
+  remote_user: "{{ ansible_user }}" 
+  become_method: sudo 
+  become: true
+  become_user: root
+
+  roles:
+    - mongodb
+
+- hosts: testing
+  remote_user: "{{ ansible_user }}"
+  become_method: sudo
+  become: true
+  become_user: root
+  vars:
+    scap_reports_dir: ~/scap_reports
+  roles:
+    - 800-53
+

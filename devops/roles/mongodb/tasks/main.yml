@@ -1,0 +1,54 @@
+---
+# tasks file for mongodb install
+#
+
+
+- include: mongodb.yml   # set facts
+  when: mongodb_enabled
+  tags: [mongodb]
+
+- name: Add MongoDB Repository
+  yum_repository:
+    name: MongoDBRepository
+    description: MongoDB.org Repository
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+    gpgkey: https://www.mongodb.org/static/pgp/server-3.4.asc
+    gpgcheck: yes
+
+- name: Install MongoDB via yum
+  yum: name=mongodb-org state=latest
+
+
+# Ensure directory for keyfile exists.
+- name: Directory for keyfile
+  tags:
+    - install
+  file:
+    path: "/opt/mongo_info"
+    state: "directory"
+    owner: "mongod"
+    group: "mongod"
+
+- name: Copy key to mongo_info
+  copy: src=MyKey.asc dest=/opt/mongo_info/MyKey.asc mode=0400 
+
+
+- name: Configure mongodb
+  template: src=mongod.conf.j2 dest=/etc/mongod.conf owner=root group=root mode=0644
+  notify: mongodb restart
+
+
+#- name: Disable transparent hugepages
+#  template: src=transparent_hugepage.conf dest=/etc/init/mongodb_settings.conf owner=root group=root mode=0644
+#  notify: ["mongodb restart", "mongodb_settings restart"]
+#  when: mongodb_transparent_hugepage_disable
+
+
+# Ensure MongoDB running
+- name: Enabling MongoDB on boot and starting 
+  service: 
+    name: "mongod" 
+    state: started 
+    enabled: yes 
+
+
